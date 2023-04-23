@@ -49,10 +49,12 @@ const NewEventForm = ({getData}) => {
   // on date change, store date in state
   const handleStartSelect = (date) => {
     setStarting_date(format(date, "MM/dd/yyyy"));
+    setStartOpen(false);
   };
 
   const handleEndSelect = (date) => {
     setEnding_date(format(date, "MM/dd/yyyy"));
+    setEndOpen(false);
   };
 
   const onSubmit = (e) => {
