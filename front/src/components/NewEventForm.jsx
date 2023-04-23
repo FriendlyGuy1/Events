@@ -9,14 +9,13 @@ import "react-date-range/dist/theme/default.css";
 import { Form, Button } from "react-bootstrap";
 import eventsService from "../services/EventsService";
 
-const NewEventForm = ({getData}) => {
+const NewEventForm = ({ getData }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [ending_date, setEnding_date] = useState("");
   const [starting_date, setStarting_date] = useState("");
-
 
   const [startOpen, setStartOpen] = useState(false);
   const [endOpen, setEndOpen] = useState(false);
@@ -29,10 +28,9 @@ const NewEventForm = ({getData}) => {
     // set current date on load
     setStarting_date(format(new Date(), "MM/dd/yyyy"));
     setEnding_date(format(new Date(), "MM/dd/yyyy"));
-    
+
     document.addEventListener("click", hideOnClickOutside, true);
   }, []);
-
 
   // Hide on outside click
   const hideOnClickOutside = (e) => {
@@ -42,9 +40,7 @@ const NewEventForm = ({getData}) => {
     if (refTwo.current && !refTwo.current.contains(e.target)) {
       setEndOpen(false);
     }
-  }
-
-
+  };
 
   // on date change, store date in state
   const handleStartSelect = (date) => {
@@ -65,17 +61,17 @@ const NewEventForm = ({getData}) => {
       return;
     }
     if (description === "") {
-        alert("please enter some description");
-        return;
+      alert("please enter some description");
+      return;
     }
     if (image === "") {
-        alert("please enter an image link");
-        return;
+      alert("please enter an image link");
+      return;
     }
     if (price === "") {
-        alert("please type a price");
-        return;
-      }
+      alert("please type a price");
+      return;
+    }
 
     const newEvent = {
       name: name,
@@ -88,11 +84,12 @@ const NewEventForm = ({getData}) => {
 
     eventsService.postEvents(newEvent);
 
+    getData();
+
     setName("");
     setImage("");
     setDescription("");
     setPrice("");
-    getData();
   };
 
   return (
@@ -122,7 +119,7 @@ const NewEventForm = ({getData}) => {
         </Form.Group>
         <Form.Group className="mb-3 startDate">
           <Form.Label> start Date </Form.Label>
-          
+
           <Form.Control
             value={starting_date}
             readOnly
@@ -138,9 +135,8 @@ const NewEventForm = ({getData}) => {
               />
             )}
           </div>
-        
         </Form.Group>
-      
+
         <Form.Group className="mb-3 endDate">
           <Form.Label> end Date </Form.Label>
           <Form.Control
