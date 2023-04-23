@@ -1,0 +1,41 @@
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    width: 80%;
+    float: left;
+    padding: 20px;
+}
+
+.card {
+    width: 300px;
+    max-height: 400px;
+    margin-top: 10px;
+    border: 1px solid rgb(116, 101, 101);
+    overflow:hidden
+}
+
+
+.title {
+    text-align: center;
+}
+
+
+.InputForm {
+    width: 20%;
+    float: left;
+    padding: 20px;
+}
+
+p {
+    display: block;
+  word-wrap: break-word;
+  overflow: hidden;
+  max-height: 14em;
+  line-height: 1.9em;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
